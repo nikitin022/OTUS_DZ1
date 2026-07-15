@@ -1,0 +1,1767 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Стиль & Релакс — онлайн-запись к парикмахеру и массажисту в Москве. Удобная запись за 1 минуту.">
+  <meta name="keywords" content="парикмахер, массаж, онлайн-запись, салон красоты, Москва">
+  <meta name="author" content="Стиль & Релакс">
+  <title>Стиль & Релакс — Онлайн-запись к парикмахеру и массажисту</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+/* ============================================
+   Стиль & Релакс — основные стили
+   Цвета: #1E3A3F, #FFFFFF, #C9A96E
+   Шрифты: Playfair Display, Inter
+   ============================================ */
+
+/* --- CSS-переменные и сброс --- */
+:root {
+  --color-primary: #1E3A3F;
+  --color-accent: #C9A96E;
+  --color-white: #FFFFFF;
+  --color-light: #F5F3EF;
+  --color-text: #2C3E42;
+  --color-muted: #6B7B7F;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --shadow: 0 4px 24px rgba(30, 58, 63, 0.12);
+  --shadow-lg: 0 8px 40px rgba(30, 58, 63, 0.18);
+  --radius: 12px;
+  --transition: 0.3s ease;
+  --header-h: 72px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; text-decoration: none; transition: color var(--transition); }
+
+ul { list-style: none; }
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Кнопки --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  border-color: var(--color-accent);
+}
+
+.btn--primary:hover {
+  background: #b8964f;
+  border-color: #b8964f;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.btn--outline:hover {
+  background: var(--color-white);
+  color: var(--color-primary);
+}
+
+.btn--lg { padding: 16px 36px; font-size: 1.05rem; }
+.btn--full { width: 100%; }
+.btn--sm { padding: 8px 20px; font-size: 0.875rem; }
+
+/* --- Шапка --- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--header-h);
+  background: transparent;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+
+.header--scrolled {
+  background: rgba(30, 58, 63, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: 16px;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-white);
+  white-space: nowrap;
+}
+
+.nav__list {
+  display: flex;
+  gap: 28px;
+}
+
+.nav__link {
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width var(--transition);
+}
+
+.nav__link:hover::after { width: 100%; }
+
+.header__cta { display: none; }
+
+/* Гамбургер */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-white);
+  transition: all var(--transition);
+}
+
+.burger--active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.burger--active span:nth-child(2) { opacity: 0; }
+.burger--active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  background: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&h=1080&fit=crop') center/cover no-repeat;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30, 58, 63, 0.85) 0%, rgba(30, 58, 63, 0.6) 100%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: calc(var(--header-h) + 40px) 0 80px;
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero__subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 36px;
+}
+
+/* --- Секции --- */
+.section {
+  padding: 80px 0;
+}
+
+.section__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.section__subtitle {
+  text-align: center;
+  color: var(--color-muted);
+  margin-bottom: 40px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Анимация появления при скролле */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Преимущества --- */
+.advantages { background: var(--color-light); }
+
+.advantages__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.advantage-card {
+  background: var(--color-white);
+  padding: 32px 24px;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.advantage-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.advantage-card__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  color: var(--color-accent);
+  transition: transform var(--transition);
+}
+
+.advantage-card:hover .advantage-card__icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.advantage-card__icon svg { width: 100%; height: 100%; }
+
+.advantage-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.advantage-card p { color: var(--color-muted); font-size: 0.95rem; }
+
+/* --- Табы услуг --- */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 32px 0;
+  flex-wrap: wrap;
+}
+
+.tabs__btn {
+  padding: 12px 24px;
+  border: 2px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.tabs__btn--active,
+.tabs__btn:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.tabs__content { display: none; }
+.tabs__content--active { display: block; }
+
+.services__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--color-white);
+  border: 1px solid #e8e4de;
+  border-radius: var(--radius);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.service-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow);
+}
+
+.service-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+
+.service-card p { color: var(--color-muted); font-size: 0.9rem; flex: 1; }
+
+.service-card__price {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+/* --- Мастера --- */
+.masters { background: var(--color-light); }
+
+.masters__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.master-card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition);
+}
+
+.master-card:hover { transform: translateY(-4px); }
+
+.master-card__photo {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.master-card__body { padding: 24px; }
+
+.master-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.master-card__spec {
+  color: var(--color-accent);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+/* --- Форма записи --- */
+.booking-form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--color-white);
+  padding: 32px 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+}
+
+.required { color: #c0392b; }
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0dcd6;
+  border-radius: 8px;
+  background: var(--color-white);
+  color: var(--color-text);
+  transition: border-color var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.form-group input.error,
+.form-group select.error { border-color: #c0392b; }
+
+.form-error {
+  display: block;
+  color: #c0392b;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  min-height: 1.2em;
+}
+
+/* Календарь на чистом JS */
+.datepicker { position: relative; }
+
+.datepicker__calendar {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  border: 1px solid #e0dcd6;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 16px;
+  z-index: 100;
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.cal-header button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--color-primary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background var(--transition);
+}
+
+.cal-header button:hover { background: var(--color-light); }
+
+.cal-header span {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin-bottom: 8px;
+}
+
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all var(--transition);
+}
+
+.cal-day:hover:not(:disabled) { background: var(--color-light); }
+
+.cal-day--selected {
+  background: var(--color-accent) !important;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.cal-day--today { border: 2px solid var(--color-primary); }
+
+.cal-day:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.cal-day--empty { visibility: hidden; }
+
+/* --- Слайдер отзывов --- */
+.slider {
+  position: relative;
+  max-width: 700px;
+  margin: 48px auto 0;
+  overflow: hidden;
+}
+
+.slider__track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.review-card {
+  min-width: 100%;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.review-card__stars {
+  color: var(--color-accent);
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.review-card__text {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--color-text);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.review-card__author {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background var(--transition);
+  z-index: 2;
+}
+
+.slider__arrow:hover { background: var(--color-accent); color: var(--color-primary); }
+.slider__arrow--prev { left: -10px; }
+.slider__arrow--next { right: -10px; }
+
+.slider__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.slider__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #d0ccc6;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.slider__dot--active {
+  background: var(--color-accent);
+  transform: scale(1.3);
+}
+
+/* --- Контакты --- */
+.contacts__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.contact-item svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-item strong {
+  display: block;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.contact-item a:hover { color: var(--color-accent); }
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  transition: all var(--transition);
+}
+
+.social-link svg { width: 22px; height: 22px; }
+
+.social-link:hover {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+.contacts__map {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.contacts__map img { width: 100%; height: 300px; object-fit: cover; }
+
+/* --- Футер --- */
+.footer {
+  background: var(--color-primary);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 24px 0;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer__link { color: var(--color-accent); }
+.footer__link:hover { text-decoration: underline; }
+
+/* --- Кнопка «Наверх» --- */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+  z-index: 999;
+}
+
+.scroll-top:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.scroll-top[hidden] { display: none; }
+
+/* --- Модальное окно --- */
+.modal[hidden] { display: none; }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 58, 63, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.modal__content {
+  position: relative;
+  background: var(--color-white);
+  padding: 40px 32px;
+  border-radius: var(--radius);
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: var(--shadow-lg);
+  animation: modalIn 0.4s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal__close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-muted);
+}
+
+.modal__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.modal__content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.modal__content p {
+  color: var(--color-muted);
+  margin-bottom: 24px;
+}
+
+/* --- Адаптив: планшет --- */
+@media (min-width: 576px) {
+  .advantages__grid { grid-template-columns: repeat(2, 1fr); }
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+  .masters__grid { grid-template-columns: repeat(2, 1fr); }
+  .form-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .header__cta { display: inline-flex; }
+  .nav__cta-mobile { display: none; }
+  .nav { display: block; }
+  .burger { display: none; }
+  .advantages__grid { grid-template-columns: repeat(4, 1fr); }
+  .contacts__grid { grid-template-columns: 1fr 1fr; }
+  .contacts__map img { height: 100%; min-height: 350px; }
+  .footer__inner { flex-direction: row; justify-content: space-between; }
+  .booking-form { padding: 40px; }
+}
+
+@media (min-width: 992px) {
+  .masters__grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* --- Адаптив: мобильное меню --- */
+@media (max-width: 767px) {
+  .burger { display: flex; }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--color-primary);
+    padding: calc(var(--header-h) + 24px) 32px 32px;
+    transition: right var(--transition);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .nav--open { right: 0; }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav__link { font-size: 1.1rem; }
+
+  .nav__cta-mobile { margin-top: 12px; }
+
+  .slider__arrow--prev { left: 4px; }
+  .slider__arrow--next { right: 4px; }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Фиксированная шапка -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#hero" class="logo">Стиль &amp; Релакс</a>
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a href="#hero" class="nav__link">Главная</a></li>
+          <li><a href="#services" class="nav__link">Услуги</a></li>
+          <li><a href="#masters" class="nav__link">Мастера</a></li>
+          <li><a href="#reviews" class="nav__link">Отзывы</a></li>
+          <li><a href="#contacts" class="nav__link">Контакты</a></li>
+          <li class="nav__cta-mobile"><a href="#booking" class="btn btn--primary">Записаться</a></li>
+        </ul>
+      </nav>
+      <a href="#booking" class="btn btn--primary header__cta">Записаться</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero__overlay"></div>
+    <div class="container hero__content fade-in">
+      <h1 class="hero__title">Идеальная стрижка и глубокий массаж в удобное время</h1>
+      <p class="hero__subtitle">Выберите услугу, мастера и время — мы позаботимся об остальном</p>
+      <a href="#services" class="btn btn--primary btn--lg">Выбрать услугу</a>
+    </div>
+  </section>
+
+  <!-- Преимущества -->
+  <section class="section advantages" id="advantages">
+    <div class="container">
+      <h2 class="section__title fade-in">Почему выбирают нас</h2>
+      <div class="advantages__grid">
+        <article class="advantage-card fade-in">
+          <div class="advantage-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z"/></svg>
+          </div>
+          <h3>Опытные мастера</h3>
+          <p>Стаж от 5 лет — уверенность в результате</p>
+        </article>
+        <article class="advantage-card fade-in">
+          <div class="advantage-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <h3>Удобная онлайн-запись</h3>
+          <p>Запишитесь за 1 минуту без звонков</p>
+        </article>
+        <article class="advantage-card fade-in">
+          <div class="advantage-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>Гибкий график</h3>
+          <p>Работаем с 9:00 до 21:00 каждый день</p>
+        </article>
+        <article class="advantage-card fade-in">
+          <div class="advantage-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>Персональный подход</h3>
+          <p>Подберём услугу под ваш запрос</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Услуги -->
+  <section class="section services" id="services">
+    <div class="container">
+      <h2 class="section__title fade-in">Услуги и цены</h2>
+      <div class="tabs fade-in" role="tablist" aria-label="Категории услуг">
+        <button class="tabs__btn tabs__btn--active" role="tab" aria-selected="true" data-tab="hair">Парикмахерские услуги</button>
+        <button class="tabs__btn" role="tab" aria-selected="false" data-tab="massage">Массаж</button>
+      </div>
+      <div class="tabs__content tabs__content--active" id="tab-hair" role="tabpanel">
+        <div class="services__grid" id="hair-services"></div>
+      </div>
+      <div class="tabs__content" id="tab-massage" role="tabpanel">
+        <div class="services__grid" id="massage-services"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Мастера -->
+  <section class="section masters" id="masters">
+    <div class="container">
+      <h2 class="section__title fade-in">Наши мастера</h2>
+      <div class="masters__grid" id="masters-grid"></div>
+    </div>
+  </section>
+
+  <!-- Форма записи -->
+  <section class="section booking" id="booking">
+    <div class="container">
+      <h2 class="section__title fade-in">Онлайн-запись</h2>
+      <p class="section__subtitle fade-in">Заполните форму — мы подтвердим запись в ближайшее время</p>
+      <form class="booking-form fade-in" id="booking-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="service-type">Тип услуги <span class="required">*</span></label>
+            <select id="service-type" name="serviceType" required>
+              <option value="">Выберите тип</option>
+              <option value="hair">Парикмахерские услуги</option>
+              <option value="massage">Массаж</option>
+            </select>
+            <span class="form-error" id="error-service-type"></span>
+          </div>
+          <div class="form-group">
+            <label for="service">Услуга <span class="required">*</span></label>
+            <select id="service" name="service" required disabled>
+              <option value="">Сначала выберите тип</option>
+            </select>
+            <span class="form-error" id="error-service"></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="master">Мастер <span class="required">*</span></label>
+            <select id="master" name="master" required>
+              <option value="">Выберите мастера</option>
+            </select>
+            <span class="form-error" id="error-master"></span>
+          </div>
+          <div class="form-group">
+            <label for="date-display">Дата <span class="required">*</span></label>
+            <div class="datepicker" id="datepicker">
+              <input type="text" id="date-display" placeholder="Выберите дату" readonly required aria-haspopup="dialog" aria-expanded="false">
+              <input type="hidden" id="date" name="date">
+              <div class="datepicker__calendar" id="calendar" role="dialog" aria-label="Календарь" hidden></div>
+            </div>
+            <span class="form-error" id="error-date"></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="time">Время <span class="required">*</span></label>
+            <select id="time" name="time" required disabled>
+              <option value="">Сначала выберите дату</option>
+            </select>
+            <span class="form-error" id="error-time"></span>
+          </div>
+          <div class="form-group">
+            <label for="name">Имя <span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Ваше имя" required minlength="2">
+            <span class="form-error" id="error-name"></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Телефон <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+            <span class="form-error" id="error-phone"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="email@example.com" required>
+            <span class="form-error" id="error-email"></span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn--primary btn--lg btn--full">Записаться</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Отзывы -->
+  <section class="section reviews" id="reviews">
+    <div class="container">
+      <h2 class="section__title fade-in">Отзывы клиентов</h2>
+      <div class="slider fade-in" id="reviews-slider">
+        <button class="slider__arrow slider__arrow--prev" id="slider-prev" aria-label="Предыдущий отзыв">&#8249;</button>
+        <div class="slider__track" id="slider-track"></div>
+        <button class="slider__arrow slider__arrow--next" id="slider-next" aria-label="Следующий отзыв">&#8250;</button>
+        <div class="slider__dots" id="slider-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section class="section contacts" id="contacts">
+    <div class="container">
+      <h2 class="section__title fade-in">Контакты</h2>
+      <div class="contacts__grid fade-in">
+        <div class="contacts__info">
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <strong>Адрес</strong>
+              <p>ул. Примерная, д. 15, Москва</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <strong>Телефон</strong>
+              <p><a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <strong>Email</strong>
+              <p><a href="mailto:info@style-relax.ru">info@style-relax.ru</a></p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="contacts__map">
+          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=500&fit=crop" alt="Карта расположения салона Стиль и Релакс на ул. Примерная, д. 15, Москва" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; 2026 Стиль &amp; Релакс. Все права защищены.</p>
+      <a href="#" class="footer__link">Политика конфиденциальности</a>
+    </div>
+  </footer>
+
+  <!-- Кнопка «Наверх» -->
+  <button class="scroll-top" id="scroll-top" aria-label="Наверх" hidden>&#8593;</button>
+
+  <!-- Модальное окно успешной записи -->
+  <div class="modal" id="success-modal" role="dialog" aria-labelledby="modal-title" aria-modal="true" hidden>
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <button class="modal__close" id="modal-close" aria-label="Закрыть">&times;</button>
+      <div class="modal__icon" aria-hidden="true">&#10003;</div>
+      <h3 id="modal-title">Спасибо!</h3>
+      <p>Мы свяжемся с вами в ближайшее время для подтверждения записи.</p>
+      <button class="btn btn--primary" id="modal-ok">Отлично</button>
+    </div>
+  </div>
+
+  <script>
+/**
+ * Стиль & Релакс — основной JavaScript
+ * Включает: навигацию, табы, форму, календарь, слайдер, анимации
+ */
+
+(function () {
+  'use strict';
+
+  /* ========== ДАННЫЕ ========== */
+
+  const SERVICES = {
+    hair: [
+      { id: 'hair-women', name: 'Женская стрижка', desc: 'Стрижка с укладкой и консультацией стилиста', price: 'от 2000 ₽' },
+      { id: 'hair-men', name: 'Мужская стрижка', desc: 'Классическая или модельная стрижка с оформлением', price: 'от 1500 ₽' },
+      { id: 'hair-color', name: 'Окрашивание', desc: 'Однотонное, мелирование или сложное окрашивание', price: 'от 4000 ₽' },
+      { id: 'hair-style', name: 'Укладка', desc: 'Вечерняя или повседневная укладка любой сложности', price: 'от 1200 ₽' }
+    ],
+    massage: [
+      { id: 'massage-back', name: 'Классический массаж спины (60 мин)', desc: 'Снятие напряжения и боли в спине', price: '2500 ₽' },
+      { id: 'massage-lymph', name: 'Лимфодренажный массаж (90 мин)', desc: 'Улучшение лимфотока и уменьшение отёков', price: '3500 ₽' },
+      { id: 'massage-neck', name: 'Массаж шейно-воротниковой зоны (30 мин)', desc: 'Снятие головных болей и зажимов', price: '1800 ₽' },
+      { id: 'massage-relax', name: 'Общий расслабляющий массаж (90 мин)', desc: 'Полное расслабление тела и восстановление сил', price: '3200 ₽' }
+    ]
+  };
+
+  const MASTERS = [
+    { id: 'anna', name: 'Анна', spec: 'Парикмахер-стилист', photo: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=500&fit=crop', types: ['hair'] },
+    { id: 'dmitry', name: 'Дмитрий', spec: 'Барбер', photo: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=400&h=500&fit=crop', types: ['hair'] },
+    { id: 'elena', name: 'Елена', spec: 'Массажист (классический, лимфодренажный)', photo: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop', types: ['massage'] },
+    { id: 'olga', name: 'Ольга', spec: 'Массажист-реабилитолог', photo: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop', types: ['massage'] }
+  ];
+
+  const REVIEWS = [
+    { name: 'Мария К.', text: 'Прекрасный салон! Анна сделала потрясающую стрижку, а онлайн-запись заняла буквально минуту.', rating: 5 },
+    { name: 'Алексей В.', text: 'Дмитрий — настоящий профессионал. Лучшая мужская стрижка, которую я когда-либо получал.', rating: 5 },
+    { name: 'Ирина С.', text: 'Лимфодренажный массаж у Елены — это что-то невероятное. Чувствую себя обновлённой!', rating: 5 },
+    { name: 'Пётр Н.', text: 'Удобный график и приятная атмосфера. Записался онлайн вечером — утром уже был на приёме.', rating: 4 },
+    { name: 'Ольга М.', text: 'Ольга помогла мне восстановиться после травмы. Очень внимательный и профессиональный подход.', rating: 5 }
+  ];
+
+  // Эмуляция свободных слотов времени
+  const TIME_SLOTS = ['09:00', '10:00', '11:30', '13:00', '14:30', '16:00', '17:30', '19:00', '20:00'];
+
+  const MONTHS = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+    'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+  const WEEKDAYS = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+
+  /* ========== DOM-элементы ========== */
+
+  const header = document.getElementById('header');
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+  const scrollTopBtn = document.getElementById('scroll-top');
+  const bookingForm = document.getElementById('booking-form');
+  const serviceTypeSelect = document.getElementById('service-type');
+  const serviceSelect = document.getElementById('service');
+  const masterSelect = document.getElementById('master');
+  const dateDisplay = document.getElementById('date-display');
+  const dateHidden = document.getElementById('date');
+  const timeSelect = document.getElementById('time');
+  const calendar = document.getElementById('calendar');
+  const datepicker = document.getElementById('datepicker');
+  const successModal = document.getElementById('success-modal');
+
+  let calYear, calMonth;
+  let sliderIndex = 0;
+  let sliderTimer;
+
+  /* ========== ИНИЦИАЛИЗАЦИЯ ========== */
+
+  function init() {
+    renderServices();
+    renderMasters();
+    renderReviews();
+    populateMasters();
+    setupTabs();
+    setupBurger();
+    setupHeaderScroll();
+    setupScrollTop();
+    setupFadeIn();
+    setupSmoothAnchors();
+    setupBookingForm();
+    setupDatepicker();
+    setupPhoneMask();
+    setupSlider();
+    setupModal();
+  }
+
+  /* ========== РЕНДЕР КАРТОЧЕК ========== */
+
+  function renderServices() {
+    const hairGrid = document.getElementById('hair-services');
+    const massageGrid = document.getElementById('massage-services');
+
+    SERVICES.hair.forEach(s => {
+      hairGrid.appendChild(createServiceCard(s, 'hair'));
+    });
+    SERVICES.massage.forEach(s => {
+      massageGrid.appendChild(createServiceCard(s, 'massage'));
+    });
+  }
+
+  function createServiceCard(service, type) {
+    const card = document.createElement('article');
+    card.className = 'service-card fade-in';
+    card.innerHTML = `
+      <h3>${service.name}</h3>
+      <p>${service.desc}</p>
+      <div class="service-card__price">${service.price}</div>
+      <button class="btn btn--primary btn--sm book-service-btn"
+        data-type="${type}" data-service="${service.id}">Записаться</button>
+    `;
+    card.querySelector('.book-service-btn').addEventListener('click', () => {
+      prefillBooking(type, service.id, null);
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    });
+    observeFadeIn(card);
+    return card;
+  }
+
+  function renderMasters() {
+    const grid = document.getElementById('masters-grid');
+    MASTERS.forEach(m => {
+      const card = document.createElement('article');
+      card.className = 'master-card fade-in';
+      card.innerHTML = `
+        <img class="master-card__photo" src="${m.photo}" alt="${m.name} — ${m.spec}" loading="lazy">
+        <div class="master-card__body">
+          <h3>${m.name}</h3>
+          <p class="master-card__spec">${m.spec}</p>
+          <button class="btn btn--primary btn--sm btn--full book-master-btn" data-master="${m.id}">Записаться к этому мастеру</button>
+        </div>
+      `;
+      card.querySelector('.book-master-btn').addEventListener('click', () => {
+        const type = m.types[0];
+        prefillBooking(type, null, m.id);
+        document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+      });
+      observeFadeIn(card);
+      grid.appendChild(card);
+    });
+  }
+
+  function populateMasters() {
+    masterSelect.innerHTML = '<option value="">Выберите мастера</option>';
+    MASTERS.forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = m.id;
+      opt.textContent = `${m.name} — ${m.spec}`;
+      masterSelect.appendChild(opt);
+    });
+  }
+
+  /* ========== ТАБЫ ========== */
+
+  function setupTabs() {
+    const buttons = document.querySelectorAll('.tabs__btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => {
+          b.classList.remove('tabs__btn--active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('tabs__btn--active');
+        btn.setAttribute('aria-selected', 'true');
+
+        document.querySelectorAll('.tabs__content').forEach(c => c.classList.remove('tabs__content--active'));
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('tabs__content--active');
+      });
+    });
+  }
+
+  /* ========== ПРЕДЗАПОЛНЕНИЕ ФОРМЫ ========== */
+
+  function prefillBooking(type, serviceId, masterId) {
+    if (type) {
+      serviceTypeSelect.value = type;
+      updateServiceOptions(type);
+    }
+    if (serviceId) {
+      serviceSelect.value = serviceId;
+    }
+    if (masterId) {
+      masterSelect.value = masterId;
+    }
+  }
+
+  function updateServiceOptions(type) {
+    const services = SERVICES[type] || [];
+    serviceSelect.innerHTML = '<option value="">Выберите услугу</option>';
+    serviceSelect.disabled = false;
+    services.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s.id;
+      opt.textContent = s.name;
+      serviceSelect.appendChild(opt);
+    });
+  }
+
+  /* ========== БУРГЕР-МЕНЮ ========== */
+
+  function setupBurger() {
+    burger.addEventListener('click', () => {
+      const open = nav.classList.toggle('nav--open');
+      burger.classList.toggle('burger--active');
+      burger.setAttribute('aria-expanded', open);
+    });
+
+    nav.querySelectorAll('.nav__link').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('nav--open');
+        burger.classList.remove('burger--active');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  /* ========== ШАПКА ПРИ СКРОЛЛЕ ========== */
+
+  function setupHeaderScroll() {
+    function onScroll() {
+      header.classList.toggle('header--scrolled', window.scrollY > 50);
+      scrollTopBtn.hidden = window.scrollY < 400;
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ========== КНОПКА «НАВЕРХ» ========== */
+
+  function setupScrollTop() {
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ========== ПЛАВНЫЙ СКРОЛЛ ПО ЯКОРЯМ ========== */
+
+  function setupSmoothAnchors() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
+  /* ========== INTERSECTION OBSERVER — АНИМАЦИЯ ПОЯВЛЕНИЯ ========== */
+
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  function observeFadeIn(el) {
+    fadeObserver.observe(el);
+  }
+
+  function setupFadeIn() {
+    document.querySelectorAll('.fade-in').forEach(el => observeFadeIn(el));
+  }
+
+  /* ========== КАЛЕНДАРЬ (чистый JS) ========== */
+
+  function setupDatepicker() {
+    const today = new Date();
+    calYear = today.getFullYear();
+    calMonth = today.getMonth();
+    renderCalendar();
+
+    dateDisplay.addEventListener('click', () => {
+      const open = calendar.hidden;
+      calendar.hidden = !open;
+      dateDisplay.setAttribute('aria-expanded', !open);
+    });
+
+    document.addEventListener('click', e => {
+      if (!datepicker.contains(e.target)) {
+        calendar.hidden = true;
+        dateDisplay.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  function renderCalendar() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    calendar.innerHTML = `
+      <div class="cal-header">
+        <button type="button" id="cal-prev" aria-label="Предыдущий месяц">&#8249;</button>
+        <span>${MONTHS[calMonth]} ${calYear}</span>
+        <button type="button" id="cal-next" aria-label="Следующий месяц">&#8250;</button>
+      </div>
+      <div class="cal-weekdays">${WEEKDAYS.map(d => `<span>${d}</span>`).join('')}</div>
+      <div class="cal-days" id="cal-days"></div>
+    `;
+
+    const daysContainer = calendar.querySelector('#cal-days');
+    const firstDay = new Date(calYear, calMonth, 1);
+    let startDay = firstDay.getDay() - 1;
+    if (startDay < 0) startDay = 6;
+
+    const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+
+    for (let i = 0; i < startDay; i++) {
+      daysContainer.innerHTML += '<button class="cal-day cal-day--empty" disabled></button>';
+    }
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(calYear, calMonth, d);
+      const isPast = date < today;
+      const isToday = date.getTime() === today.getTime();
+      const isSelected = dateHidden.value === formatDateISO(date);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cal-day' +
+        (isToday ? ' cal-day--today' : '') +
+        (isSelected ? ' cal-day--selected' : '');
+      btn.textContent = d;
+      btn.disabled = isPast;
+
+      if (!isPast) {
+        btn.addEventListener('click', () => selectDate(date));
+      }
+      daysContainer.appendChild(btn);
+    }
+
+    calendar.querySelector('#cal-prev').addEventListener('click', () => {
+      calMonth--;
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    });
+
+    calendar.querySelector('#cal-next').addEventListener('click', () => {
+      calMonth++;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      renderCalendar();
+    });
+  }
+
+  function selectDate(date) {
+    dateHidden.value = formatDateISO(date);
+    dateDisplay.value = formatDateRu(date);
+    calendar.hidden = true;
+    dateDisplay.setAttribute('aria-expanded', 'false');
+    updateTimeSlots();
+    clearError('date');
+  }
+
+  function formatDateISO(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
+
+  function formatDateRu(d) {
+    return d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  function updateTimeSlots() {
+    timeSelect.innerHTML = '<option value="">Выберите время</option>';
+    timeSelect.disabled = false;
+    // Эмуляция: случайно «занятые» слоты для реалистичности
+    const busyCount = Math.floor(Math.random() * 3);
+    const busy = new Set();
+    while (busy.size < busyCount) {
+      busy.add(TIME_SLOTS[Math.floor(Math.random() * TIME_SLOTS.length)]);
+    }
+    TIME_SLOTS.forEach(slot => {
+      if (!busy.has(slot)) {
+        const opt = document.createElement('option');
+        opt.value = slot;
+        opt.textContent = slot;
+        timeSelect.appendChild(opt);
+      }
+    });
+  }
+
+  /* ========== МАСКА ТЕЛЕФОНА +7 ========== */
+
+  function setupPhoneMask() {
+    const phone = document.getElementById('phone');
+    phone.addEventListener('input', () => {
+      let digits = phone.value.replace(/\D/g, '');
+      if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+      if (!digits.startsWith('7')) digits = '7' + digits;
+      digits = digits.slice(0, 11);
+
+      let formatted = '+7';
+      if (digits.length > 1) formatted += ' (' + digits.slice(1, 4);
+      if (digits.length >= 4) formatted += ') ' + digits.slice(4, 7);
+      if (digits.length >= 7) formatted += '-' + digits.slice(7, 9);
+      if (digits.length >= 9) formatted += '-' + digits.slice(9, 11);
+
+      phone.value = formatted;
+    });
+
+    phone.addEventListener('focus', () => {
+      if (!phone.value) phone.value = '+7 (';
+    });
+  }
+
+  /* ========== ВАЛИДАЦИЯ ФОРМЫ ========== */
+
+  function setupBookingForm() {
+    serviceTypeSelect.addEventListener('change', () => {
+      const type = serviceTypeSelect.value;
+      if (type) {
+        updateServiceOptions(type);
+      } else {
+        serviceSelect.innerHTML = '<option value="">Сначала выберите тип</option>';
+        serviceSelect.disabled = true;
+      }
+      clearError('service-type');
+    });
+
+    ['service', 'master', 'time', 'name', 'email'].forEach(field => {
+      const el = document.getElementById(field === 'service-type' ? 'service-type' : field);
+      if (el) el.addEventListener('change', () => clearError(field));
+      if (el && el.tagName === 'INPUT') el.addEventListener('input', () => clearError(field));
+    });
+
+    document.getElementById('phone').addEventListener('input', () => clearError('phone'));
+
+    bookingForm.addEventListener('submit', e => {
+      e.preventDefault();
+      if (validateForm()) {
+        simulateSubmit();
+      }
+    });
+  }
+
+  function validateForm() {
+    let valid = true;
+
+    if (!serviceTypeSelect.value) {
+      showError('service-type', 'Выберите тип услуги');
+      valid = false;
+    }
+    if (!serviceSelect.value) {
+      showError('service', 'Выберите услугу');
+      valid = false;
+    }
+    if (!masterSelect.value) {
+      showError('master', 'Выберите мастера');
+      valid = false;
+    }
+    if (!dateHidden.value) {
+      showError('date', 'Выберите дату');
+      valid = false;
+    }
+    if (!timeSelect.value) {
+      showError('time', 'Выберите время');
+      valid = false;
+    }
+
+    const name = document.getElementById('name');
+    if (!name.value.trim() || name.value.trim().length < 2) {
+      showError('name', 'Введите имя (минимум 2 символа)');
+      name.classList.add('error');
+      valid = false;
+    } else {
+      name.classList.remove('error');
+    }
+
+    const phone = document.getElementById('phone');
+    const phoneDigits = phone.value.replace(/\D/g, '');
+    if (phoneDigits.length !== 11) {
+      showError('phone', 'Введите корректный номер телефона');
+      phone.classList.add('error');
+      valid = false;
+    } else {
+      phone.classList.remove('error');
+    }
+
+    const email = document.getElementById('email');
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(email.value.trim())) {
+      showError('email', 'Введите корректный email');
+      email.classList.add('error');
+      valid = false;
+    } else {
+      email.classList.remove('error');
+    }
+
+    return valid;
+  }
+
+  function showError(field, msg) {
+    const errEl = document.getElementById('error-' + field);
+    if (errEl) errEl.textContent = msg;
+    const inputMap = {
+      'service-type': serviceTypeSelect,
+      'service': serviceSelect,
+      'master': masterSelect,
+      'date': dateDisplay,
+      'time': timeSelect
+    };
+    if (inputMap[field]) inputMap[field].classList.add('error');
+  }
+
+  function clearError(field) {
+    const errEl = document.getElementById('error-' + field);
+    if (errEl) errEl.textContent = '';
+    const inputMap = {
+      'service-type': serviceTypeSelect,
+      'service': serviceSelect,
+      'master': masterSelect,
+      'date': dateDisplay,
+      'time': timeSelect,
+      'name': document.getElementById('name'),
+      'phone': document.getElementById('phone'),
+      'email': document.getElementById('email')
+    };
+    if (inputMap[field]) inputMap[field].classList.remove('error');
+  }
+
+  function simulateSubmit() {
+    const btn = bookingForm.querySelector('[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Отправка...';
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Записаться';
+      openModal();
+      resetForm();
+    }, 1200);
+  }
+
+  function resetForm() {
+    bookingForm.reset();
+    serviceSelect.innerHTML = '<option value="">Сначала выберите тип</option>';
+    serviceSelect.disabled = true;
+    timeSelect.innerHTML = '<option value="">Сначала выберите дату</option>';
+    timeSelect.disabled = true;
+    dateDisplay.value = '';
+    dateHidden.value = '';
+    document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+    document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+  }
+
+  /* ========== МОДАЛЬНОЕ ОКНО ========== */
+
+  function setupModal() {
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal-ok').addEventListener('click', closeModal);
+    successModal.querySelector('.modal__overlay').addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !successModal.hidden) closeModal();
+    });
+  }
+
+  function openModal() {
+    successModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    successModal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  /* ========== СЛАЙДЕР ОТЗЫВОВ ========== */
+
+  function renderReviews() {
+    const track = document.getElementById('slider-track');
+    const dots = document.getElementById('slider-dots');
+
+    REVIEWS.forEach((r, i) => {
+      const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+      const slide = document.createElement('div');
+      slide.className = 'review-card';
+      slide.innerHTML = `
+        <div class="review-card__stars" aria-label="Рейтинг ${r.rating} из 5">${stars}</div>
+        <p class="review-card__text">«${r.text}»</p>
+        <p class="review-card__author">— ${r.name}</p>
+      `;
+      track.appendChild(slide);
+
+      const dot = document.createElement('button');
+      dot.className = 'slider__dot' + (i === 0 ? ' slider__dot--active' : '');
+      dot.setAttribute('aria-label', `Отзыв ${i + 1}`);
+      dot.addEventListener('click', () => goToSlide(i));
+      dots.appendChild(dot);
+    });
+  }
+
+  function setupSlider() {
+    document.getElementById('slider-prev').addEventListener('click', () => goToSlide(sliderIndex - 1));
+    document.getElementById('slider-next').addEventListener('click', () => goToSlide(sliderIndex + 1));
+    startAutoSlide();
+  }
+
+  function goToSlide(index) {
+    const total = REVIEWS.length;
+    sliderIndex = ((index % total) + total) % total;
+    const track = document.getElementById('slider-track');
+    track.style.transform = `translateX(-${sliderIndex * 100}%)`;
+
+    document.querySelectorAll('.slider__dot').forEach((dot, i) => {
+      dot.classList.toggle('slider__dot--active', i === sliderIndex);
+    });
+
+    resetAutoSlide();
+  }
+
+  function startAutoSlide() {
+    sliderTimer = setInterval(() => goToSlide(sliderIndex + 1), 5000);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(sliderTimer);
+    startAutoSlide();
+  }
+
+  /* ========== ЗАПУСК ========== */
+  document.addEventListener('DOMContentLoaded', init);
+
+})();
+
+</script>
+</body>
+</html>

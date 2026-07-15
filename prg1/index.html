@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Стиль & Релакс — онлайн-запись к парикмахеру и массажисту в Москве. Выберите услугу, мастера и удобное время.">
+    <meta name="keywords" content="парикмахер, массаж, запись онлайн, салон красоты, Москва">
+    <meta name="author" content="Стиль & Релакс">
+    <meta property="og:title" content="Стиль & Релакс — Ваши красота и здоровье в паре кликов">
+    <meta property="og:description" content="Онлайн-запись к парикмахеру и массажисту. Опытные мастера, удобный график, персональный подход.">
+    <meta property="og:type" content="website">
+    <title>Стиль & Релакс — Онлайн-запись к парикмахеру и массажисту</title>
+    <!-- Подключение шрифтов Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Подключение CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ==================== ШАПКА ==================== -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <!-- Логотип -->
+            <a href="#hero" class="header__logo">
+                <span class="header__logo-icon">✦</span>
+                <span class="header__logo-text">Стиль <span>&</span> Релакс</span>
+            </a>
+
+            <!-- Навигация -->
+            <nav class="header__nav" id="nav">
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="#hero" class="header__menu-link">Главная</a></li>
+                    <li class="header__menu-item"><a href="#services" class="header__menu-link">Услуги</a></li>
+                    <li class="header__menu-item"><a href="#masters" class="header__menu-link">Мастера</a></li>
+                    <li class="header__menu-item"><a href="#reviews" class="header__menu-link">Отзывы</a></li>
+                    <li class="header__menu-item"><a href="#contacts" class="header__menu-link">Контакты</a></li>
+                </ul>
+                <a href="#booking" class="btn btn--gold header__btn">Записаться</a>
+            </nav>
+
+            <!-- Гамбургер-меню для мобильных -->
+            <button class="header__burger" id="burger" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==================== ПЕРВЫЙ ЭКРАН (HERO) ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero__bg" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80')"></div>
+        <div class="hero__overlay"></div>
+        <div class="container hero__content">
+            <h1 class="hero__title">Идеальная стрижка и глубокий массаж в удобное время</h1>
+            <p class="hero__subtitle">Выберите услугу, мастера и время — мы позаботимся об остальном</p>
+            <a href="#services" class="btn btn--gold btn--large">Выбрать услугу</a>
+        </div>
+    </section>
+
+    <!-- ==================== ПРЕИМУЩЕСТВА ==================== -->
+    <section class="advantages" id="advantages">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="advantages__grid">
+                <!-- Карточка 1 -->
+                <div class="advantage-card fade-in">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="20" r="12" stroke="#C9A96E" stroke-width="2"/>
+                            <path d="M8 56c0-13.255 10.745-24 24-24s24 10.745 24 24" stroke="#C9A96E" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M44 14l4-4m0 0l4 4m-4-4v8" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Опытные мастера</h3>
+                    <p class="advantage-card__text">Стаж работы каждого мастера от 5 лет. Постоянное обучение и совершенствование навыков.</p>
+                </div>
+                <!-- Карточка 2 -->
+                <div class="advantage-card fade-in">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="12" width="48" height="40" rx="4" stroke="#C9A96E" stroke-width="2"/>
+                            <path d="M8 24h48" stroke="#C9A96E" stroke-width="2"/>
+                            <path d="M20 6v8M44 6v8" stroke="#C9A96E" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="24" cy="34" r="3" fill="#C9A96E"/>
+                            <circle cx="32" cy="34" r="3" fill="#C9A96E"/>
+                            <circle cx="40" cy="34" r="3" fill="#C9A96E"/>
+                            <circle cx="24" cy="44" r="3" fill="#C9A96E"/>
+                            <circle cx="32" cy="44" r="3" fill="#C9A96E"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Удобная онлайн-запись</h3>
+                    <p class="advantage-card__text">Запишитесь к мастеру за 1 минуту, не выходя из дома. Без звонков и ожидания.</p>
+                </div>
+                <!-- Карточка 3 -->
+                <div class="advantage-card fade-in">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="24" stroke="#C9A96E" stroke-width="2"/>
+                            <path d="M32 16v16l10 6" stroke="#C9A96E" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M52 52l4 4M12 52l-4 4" stroke="#C9A96E" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Гибкий график</h3>
+                    <p class="advantage-card__text">Работаем с 9:00 до 21:00 без выходных. Выберите удобное для вас время.</p>
+                </div>
+                <!-- Карточка 4 -->
+                <div class="advantage-card fade-in">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 8l6 12h14l-10 8 4 14-14-10-14 10 4-14-10-8h14z" stroke="#C9A96E" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Персональный подход</h3>
+                    <p class="advantage-card__text">Подберём услугу именно под ваш запрос. Индивидуальный подход к каждому клиенту.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== УСЛУГИ И ЦЕНЫ ==================== -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Услуги и цены</h2>
+
+            <!-- Табы -->
+            <div class="services__tabs">
+                <button class="services__tab active" data-tab="hair">Парикмахерские услуги</button>
+                <button class="services__tab" data-tab="massage">Массаж</button>
+            </div>
+
+            <!-- Контент таба: Парикмахерские услуги -->
+            <div class="services__content services__content--active" id="tab-hair">
+                <div class="services__grid">
+                    <!-- Карточка услуги -->
+                    <div class="service-card fade-in">
+                        <div class="service-card__image" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80')"></div>
+                        <div class="service-card__body">
+                            <h3 class="service-card__title">Женская стрижка</h3>
+                            <p class="service-card__desc">Стильная стрижка с учётом формы лица и трендов сезона. Включает мытьё и укладку.</p>
+                            <div class="service-card__footer">
+                                <span class="service-card__price">от 2 000 ₽</span>
+                                <button class="btn btn--outline service-card__btn" data-service="Женская стрижка">Записаться</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Карточка услуги -->
+                    <div class="service-card fade-in">
+                        <div class="service-card__image" style="background-image: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80')"></div>
+                        <div class="service-card__body">
+                            <h3 class="service-card__title">Мужская стрижка</h3>
+                            <p class="service-card__desc">Классические и современные мужские стрижки. Работа с машинкой и ножницами.</p>
+                            <div class="service-card__footer">
+                                <span class="service-card__price">от 1 500 ₽</span>
+                                <button class="btn btn--outline service-card__btn" data-service="Мужская стрижка">Записаться</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Карточка услуги -->
+                    <div class="service-card fade-in">
+                        <div class="service-card__image" style="background-image: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=80')"></div>
+                        <div class="service-card__body">
+                            <h3 class="service-card__title">Окрашивание</h3>
+                            <p class="service-card__desc">Однотонное, балаяж, шатуш, аиртач. Используем профессиональные красители.</p>
+                            <div class="service-card__footer">
+                                <span class="service-card__price">от 4 000 ₽</span>
+                                <button class="btn btn--outline service-card__btn" data-service="Окрашивание">Записаться</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Карточка услуги -->
+                    <div class="service-card fade-in">
+                        <div class="service-card__image" style="background-image: url('https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=600&q=80')"></div>
+                        <div class="service-card__body">
+                            <h3 class="service-card__title">Укладка</h3>
+                            <p class="service-card__desc">Повседневная и праздничная укладка. Локоны, прямой стиль, объёмные причёски.</p>
+                            <div class="service-card__footer">
+                                <span class="service-card__price">от 1 200 ₽</span>
+                                <button class="btn btn--outline service-card__btn" data-service="Укладка">Записаться</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Контент таба: Массаж -->
+            <div class="services__content" id="tab-massage">
+                <div class="services__grid">
+                    <!-- Карточка услуги -->
+                    <div class="service-card fade-in">
+                        <div class="service-card__image" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80')"></div>
+                        <div class="service-card__body">
+                            <h3 class="service-card__title">Классический массаж спины</h3>
+                            <p class="service-card__desc">Снятие напряжения и болевых ощущений в области спины и шейно-воротниковой зоны. 60 минут.</p>
+                            <div class="service-card__footer">
+                                <span class="service-card__price">2 500 ₽</span>
+                                <span class="service-card__duration">60 мин</span>
+                                <button class="btn btn--outline service-card__btn" data-service="Классический массаж спины">Записаться</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Карточка услуги -->
+                    <div class="service-card fade-in">
+                        <div class="service-card__image" style="background-image: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80')"></div>
+                        <div class="service-card__body">
+                            <h3 class="service-card__title">Лимфодренажный массаж</h3>
+                            <p class="service-card__desc">Улучшение циркуляции лимфы, снятие отёков, детокс-эффект. 90 минут.</p>
+                            <div class="service-card__footer">
+                                <span class="service-card__price">3 500 ₽</span>
+                                <span class="service-card__duration">90 мин</span>
+                                <button class="btn btn--outline service-card__btn" data-service="Лимфодренажный массаж">Записаться</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Карточка услуги -->
+                    <div class="service-card fade-in">
+                        <div class="service-card__image" style="background-image: url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=600&q=80')"></div>
+                        <div class="service-card__body">
+                            <h3 class="service-card__title">Массаж шейно-воротниковой зоны</h3>
+                            <p class="service-card__desc">Быстрое снятие напряжения с шеи и плеч. Идеально при сидячей работе. 30 минут.</p>
+                            <div class="service-card__footer">
+                                <span class="service-card__price">1 800 ₽</span>
+                                <span class="service-card__duration">30 мин</span>
+                                <button class="btn btn--outline service-card__btn" data-service="Массаж шейно-воротниковой зоны">Записаться</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Карточка услуги -->
+                    <div class="service-card fade-in">
+                        <div class="service-card__image" style="background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80')"></div>
+                        <div class="service-card__body">
+                            <h3 class="service-card__title">Общий расслабляющий массаж</h3>
+                            <p class="service-card__desc">Полное расслабление всего тела. Мягкие техники, ароматерапия, спокойная музыка. 90 минут.</p>
+                            <div class="service-card__footer">
+                                <span class="service-card__price">3 200 ₽</span>
+                                <span class="service-card__duration">90 мин</span>
+                                <button class="btn btn--outline service-card__btn" data-service="Общий расслабляющий массаж">Записаться</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== НАШИ МАСТЕРА ==================== -->
+    <section class="masters" id="masters">
+        <div class="container">
+            <h2 class="section-title">Наши мастера</h2>
+            <div class="masters__grid">
+                <!-- Мастер 1 -->
+                <div class="master-card fade-in">
+                    <div class="master-card__photo" style="background-image: url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&q=80')"></div>
+                    <div class="master-card__info">
+                        <h3 class="master-card__name">Анна</h3>
+                        <p class="master-card__role">Парикмахер-стилист</p>
+                        <p class="master-card__exp">Стаж: 8 лет</p>
+                        <button class="btn btn--gold master-card__btn" data-master="Анна" data-service="">Записаться</button>
+                    </div>
+                </div>
+                <!-- Мастер 2 -->
+                <div class="master-card fade-in">
+                    <div class="master-card__photo" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80')"></div>
+                    <div class="master-card__info">
+                        <h3 class="master-card__name">Дмитрий</h3>
+                        <p class="master-card__role">Барбер</p>
+                        <p class="master-card__exp">Стаж: 6 лет</p>
+                        <button class="btn btn--gold master-card__btn" data-master="Дмитрий" data-service="">Записаться</button>
+                    </div>
+                </div>
+                <!-- Мастер 3 -->
+                <div class="master-card fade-in">
+                    <div class="master-card__photo" style="background-image: url('https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&q=80')"></div>
+                    <div class="master-card__info">
+                        <h3 class="master-card__name">Елена</h3>
+                        <p class="master-card__role">Массажист</p>
+                        <p class="master-card__exp">Классический, лимфодренажный. Стаж: 10 лет</p>
+                        <button class="btn btn--gold master-card__btn" data-master="Елена" data-service="">Записаться</button>
+                    </div>
+                </div>
+                <!-- Мастер 4 -->
+                <div class="master-card fade-in">
+                    <div class="master-card__photo" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80')"></div>
+                    <div class="master-card__info">
+                        <h3 class="master-card__name">Ольга</h3>
+                        <p class="master-card__role">Массажист-реабилитолог</p>
+                        <p class="master-card__exp">Стаж: 12 лет</p>
+                        <button class="btn btn--gold master-card__btn" data-master="Ольга" data-service="">Записаться</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ФОРМА ОНЛАЙН-ЗАПИСИ ==================== -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <h2 class="section-title">Онлайн-запись</h2>
+            <p class="booking__subtitle">Заполните форму, и мы подтвердим вашу запись в ближайшее время</p>
+
+            <form class="booking__form" id="bookingForm" novalidate>
+                <!-- Тип услуги -->
+                <div class="form-group">
+                    <label class="form-group__label" for="serviceType">Тип услуги</label>
+                    <select class="form-group__input" id="serviceType" required>
+                        <option value="" disabled selected>Выберите тип услуги</option>
+                        <option value="hair">Парикмахерские услуги</option>
+                        <option value="massage">Массаж</option>
+                    </select>
+                    <span class="form-group__error" id="serviceTypeError"></span>
+                </div>
+
+                <!-- Услуга (динамическая) -->
+                <div class="form-group">
+                    <label class="form-group__label" for="service">Услуга</label>
+                    <select class="form-group__input" id="service" required>
+                        <option value="" disabled selected>Сначала выберите тип услуги</option>
+                    </select>
+                    <span class="form-group__error" id="serviceError"></span>
+                </div>
+
+                <!-- Мастер -->
+                <div class="form-group">
+                    <label class="form-group__label" for="master">Мастер</label>
+                    <select class="form-group__input" id="master" required>
+                        <option value="" disabled selected>Выберите мастера</option>
+                        <option value="Любой">Любой мастер</option>
+                        <option value="Анна">Анна — парикмахер-стилист</option>
+                        <option value="Дмитрий">Дмитрий — барбер</option>
+                        <option value="Елена">Елена — массажист</option>
+                        <option value="Ольга">Ольга — массажист-реабилитолог</option>
+                    </select>
+                    <span class="form-group__error" id="masterError"></span>
+                </div>
+
+                <!-- Дата и время -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-group__label" for="bookingDate">Дата</label>
+                        <!-- Кастомный календарь -->
+                        <div class="calendar" id="calendar">
+                            <div class="calendar__header">
+                                <button type="button" class="calendar__nav" id="calendarPrev">‹</button>
+                                <span class="calendar__month" id="calendarMonth"></span>
+                                <button type="button" class="calendar__nav" id="calendarNext">›</button>
+                            </div>
+                            <div class="calendar__weekdays">
+                                <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+                            </div>
+                            <div class="calendar__days" id="calendarDays"></div>
+                        </div>
+                        <input type="hidden" id="bookingDate" required>
+                        <span class="form-group__error" id="bookingDateError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group__label" for="bookingTime">Время</label>
+                        <select class="form-group__input" id="bookingTime" required>
+                            <option value="" disabled selected>Выберите дату</option>
+                        </select>
+                        <span class="form-group__error" id="bookingTimeError"></span>
+                    </div>
+                </div>
+
+                <!-- Имя -->
+                <div class="form-group">
+                    <label class="form-group__label" for="clientName">Имя</label>
+                    <input type="text" class="form-group__input" id="clientName" placeholder="Ваше имя" required>
+                    <span class="form-group__error" id="clientNameError"></span>
+                </div>
+
+                <!-- Телефон -->
+                <div class="form-group">
+                    <label class="form-group__label" for="clientPhone">Телефон</label>
+                    <input type="tel" class="form-group__input" id="clientPhone" placeholder="+7 (___) ___-__-__" required>
+                    <span class="form-group__error" id="clientPhoneError"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label class="form-group__label" for="clientEmail">Email</label>
+                    <input type="email" class="form-group__input" id="clientEmail" placeholder="your@email.com" required>
+                    <span class="form-group__error" id="clientEmailError"></span>
+                </div>
+
+                <button type="submit" class="btn btn--gold btn--large btn--full">Записаться</button>
+            </form>
+
+            <!-- Сообщение об успехе (скрыто по умолчанию) -->
+            <div class="booking__success" id="bookingSuccess" style="display: none;">
+                <div class="booking__success-icon">✓</div>
+                <h3 class="booking__success-title">Спасибо за запись!</h3>
+                <p class="booking__success-text">Мы свяжемся с вами в ближайшее время для подтверждения.</p>
+                <button class="btn btn--outline" id="resetFormBtn">Записаться ещё раз</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ОТЗЫВЫ ==================== -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы наших клиентов</h2>
+
+            <div class="reviews__slider" id="reviewsSlider">
+                <!-- Слайд 1 -->
+                <div class="reviews__slide active">
+                    <div class="reviews__slide-header">
+                        <div class="reviews__avatar" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80')"></div>
+                        <div>
+                            <h4 class="reviews__name">Мария Иванова</h4>
+                            <div class="reviews__stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="reviews__text">«Делала окрашивание у Анны — результат превзошёл все ожидания! Цвет получился именно такой, как я хотела. Очень довольна, теперь только к ней!»</p>
+                </div>
+                <!-- Слайд 2 -->
+                <div class="reviews__slide">
+                    <div class="reviews__slide-header">
+                        <div class="reviews__avatar" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80')"></div>
+                        <div>
+                            <h4 class="reviews__name">Алексей Петров</h4>
+                            <div class="reviews__stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="reviews__text">«Хожу к Дмитрию на стрижки уже полгода. Всегда чётко, быстро и по делу. Отличный барбер, рекомендую всем мужчинам!»</p>
+                </div>
+                <!-- Слайд 3 -->
+                <div class="reviews__slide">
+                    <div class="reviews__slide-header">
+                        <div class="reviews__avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80')"></div>
+                        <div>
+                            <h4 class="reviews__name">Екатерина Смирнова</h4>
+                            <div class="reviews__stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="reviews__text">«Была на общем расслабляющем массаже у Ольги — это было что-то невероятное! Ушла как новая. Обязательно вернусь снова.»</p>
+                </div>
+                <!-- Слайд 4 -->
+                <div class="reviews__slide">
+                    <div class="reviews__slide-header">
+                        <div class="reviews__avatar" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80')"></div>
+                        <div>
+                            <h4 class="reviews__name">Наталья Козлова</h4>
+                            <div class="reviews__stars">★★★★☆</div>
+                        </div>
+                    </div>
+                    <p class="reviews__text">«Записалась на лимфодренажный массаж к Елене. Чувствительный и профессиональный подход. Отёки ушли уже после первого сеанса!»</p>
+                </div>
+                <!-- Слайд 5 -->
+                <div class="reviews__slide">
+                    <div class="reviews__slide-header">
+                        <div class="reviews__avatar" style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80')"></div>
+                        <div>
+                            <h4 class="reviews__name">Игорь Волков</h4>
+                            <div class="reviews__stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="reviews__text">«Удобная онлайн-запись, приятная атмосфера в салоне. Дмитрий сделал отличную бороду. Теперь рекомендую знакомым!»</p>
+                </div>
+            </div>
+
+            <!-- Навигация слайдера -->
+            <div class="reviews__controls">
+                <button class="reviews__arrow" id="reviewsPrev" aria-label="Предыдущий отзыв">‹</button>
+                <div class="reviews__dots" id="reviewsDots"></div>
+                <button class="reviews__arrow" id="reviewsNext" aria-label="Следующий отзыв">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== КОНТАКТЫ ==================== -->
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contacts__grid">
+                <!-- Информация -->
+                <div class="contacts__info">
+                    <div class="contact-item">
+                        <div class="contact-item__icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="#C9A96E" stroke-width="2"/>
+                                <circle cx="12" cy="10" r="3" stroke="#C9A96E" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="contact-item__title">Адрес</h4>
+                            <p class="contact-item__text">ул. Примерная, д. 15, Москва</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item__icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="#C9A96E" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="contact-item__title">Телефон</h4>
+                            <a href="tel:+79991234567" class="contact-item__text">+7 (999) 123-45-67</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item__icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="4" width="20" height="16" rx="2" stroke="#C9A96E" stroke-width="2"/>
+                                <path d="M22 4l-10 8L2 4" stroke="#C9A96E" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="contact-item__title">Email</h4>
+                            <a href="mailto:info@style-relax.ru" class="contact-item__text">info@style-relax.ru</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item__icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="#C9A96E" stroke-width="2"/>
+                                <path d="M12 6v6l4 2" stroke="#C9A96E" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="contact-item__title">Режим работы</h4>
+                            <p class="contact-item__text">Ежедневно с 9:00 до 21:00</p>
+                        </div>
+                    </div>
+
+                    <!-- Социальные сети -->
+                    <div class="contacts__social">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="2" width="20" height="20" rx="5" stroke="#C9A96E" stroke-width="2"/>
+                                <circle cx="12" cy="12" r="5" stroke="#C9A96E" stroke-width="2"/>
+                                <circle cx="17.5" cy="6.5" r="1.5" fill="#C9A96E"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 3L1 11l7 2.5M21 3l-8.5 13.5L9 14l10-11zM9 14l2 7" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Карта -->
+                <div class="contacts__map">
+                    <iframe 
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=37.57%2C55.74%2C37.63%2C55.76&layer=mapnik&marker=55.75%2C37.60" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        title="Карта расположения салона">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ФУТЕР ==================== -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <p class="footer__copy">© 2026 Стиль & Релакс. Все права защищены.</p>
+            <a href="#" class="footer__privacy">Политика конфиденциальности</a>
+        </div>
+    </footer>
+
+    <!-- ==================== КНОПКА «НАВЕРХ» ==================== -->
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <!-- Подключение JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
